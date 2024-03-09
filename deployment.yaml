@@ -21,13 +21,7 @@ spec:
         env:
         - name: MYSQL_HOST
           value: mysql-service
-      readinessGates:
-      - conditionType: target-health.alb.ingress.k8s.aws/k8s-phpapp-phpapp-d5c7858ec5
-      terminationGracePeriodSeconds: 70
-        lifecycle:
-          preStop:
-            exec:
-              command: ["/bin/sh", "-c", "sleep 40"]
+     
   strategy:
     type: RollingUpdate
     rollingUpdate:
